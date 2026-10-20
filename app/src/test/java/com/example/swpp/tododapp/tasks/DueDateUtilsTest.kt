@@ -1,10 +1,14 @@
 package com.example.swpp.tododapp.tasks
 
 import java.time.LocalDate
-import org.junit.Assert.assertEquals
+import org.hamcrest.CoreMatchers.equalTo
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.ErrorCollector
 
 class DueDateUtilsTest {
+    @get:Rule
+    val errors = ErrorCollector()
 
     // U01: Completion takes precedence over absence, past, present, and future due dates.
     @Test
@@ -21,7 +25,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -36,7 +41,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -51,7 +57,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -66,7 +73,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -81,7 +89,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -97,7 +106,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -113,7 +123,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -129,7 +140,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -149,7 +161,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -166,7 +179,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -186,7 +200,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -206,7 +221,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -223,7 +239,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -240,7 +257,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -263,7 +281,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
@@ -280,7 +299,8 @@ class DueDateUtilsTest {
             // WHEN - Calculate the label using the supplied date, never the system clock.
             val result = dueDateLabel(case.dueDate?.let(LocalDate::parse), LocalDate.parse(case.today), case.completed)
             // THEN - Compare with the literal oracle from the specification.
-            assertEquals(case.toString(), case.expected, result)
+            println("TUTORIAL07 $case actual='$result'")
+            errors.checkThat(case.toString(), result, equalTo(case.expected))
         }
     }
 
