@@ -2,7 +2,7 @@ package com.example.swpp.tododapp.taskdetail
 
 import androidx.test.filters.MediumTest
 import org.junit.runner.RunWith
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.swpp.tododapp.R
 import com.example.swpp.tododapp.data.Task
 import org.junit.Test
@@ -16,7 +16,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.example.swpp.tododapp.ServiceLocator
 import com.example.swpp.tododapp.data.source.FakeAndroidTestRepository
 import com.example.swpp.tododapp.data.source.TasksRepository
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
 import org.junit.Before
 import kotlinx.coroutines.test.runTest
@@ -42,15 +41,19 @@ class TaskDetailFragmentTest {
     @Test
     fun activeTaskDetails_DisplayedInUi() = runTest {
         // GIVEN - Add active task to the DB
+        val activeTask = Task("Active Task", "AndroidX Rocks", false)
+        repository.saveTask(activeTask)
 
         // WHEN - Details fragment launched to display task
-
-        // (Optional for explanation) Pause here for 2 seconds to visually confirm fragment launching
-        Thread.sleep(2000)
-
-        // THEN - Task details are displayed on the screen
-        // make sure that the title/description are both shown and correct
-        // and make sure the "active" checkbox is shown unchecked
-
+        val bundle = TaskDetailFragmentArgs(activeTask.id).toBundle()
+        launchFragmentInContainer<TaskDetailFragment>(bundle, R.style.AppTheme).use {
+            // THEN - The real screen displays the saved title, description, and active state.
+            onView(withId(R.id.task_detail_title_text)).check(matches(isDisplayed()))
+            onView(withId(R.id.task_detail_title_text)).check(matches(withText("Active Task")))
+            onView(withId(R.id.task_detail_description_text)).check(matches(isDisplayed()))
+            onView(withId(R.id.task_detail_description_text)).check(matches(withText("AndroidX Rocks")))
+            onView(withId(R.id.task_detail_complete_checkbox)).check(matches(isDisplayed()))
+            onView(withId(R.id.task_detail_complete_checkbox)).check(matches(not(isChecked())))
+        }
     }
-    }
+}
